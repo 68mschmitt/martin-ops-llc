@@ -3,7 +3,7 @@ import { articles } from "@/content/insights";
 import { caseStudies } from "@/content/case-studies";
 import { absoluteUrl, siteUrl } from "@/lib/site";
 
-const staticPaths = ["/", "/services/fractional-coo", "/services/fractional-integrator", "/process", "/operations-assessment", "/case-studies", "/about", "/insights", "/faq", "/contact", "/atlanta-fractional-coo"];
+const staticPaths = ["/", "/services/fractional-coo", "/services/fractional-integrator", "/process", "/operations-assessment", "/case-studies", "/about", "/insights", "/faq", "/contact", "/atlanta-fractional-coo", "/for-agents"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // An empty sitemap avoids publishing an invented canonical host before deployment is configured.

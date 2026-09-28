@@ -6,7 +6,7 @@ A content-led business site for Jeff Martin's fractional COO and Integrator prac
 
 - `app/` — App Router pages, the contact route handler, sitemap, robots, and social image.
 - `components/` — shared navigation, footer, CTA, FAQ, article, contact, analytics, and schema components.
-- `content/` — typed services, FAQs, insight articles, assessment dimensions, and case-study model/template.
+- `content/` — typed services, FAQs, insight articles, assessment dimensions, case-study model/template, and the shared agent brief.
 - `lib/site.ts` — brand constants, canonical URL, booking destination, metadata helper.
 - `lib/structured-data.ts` — centralized JSON-LD builders for organization/person, services, breadcrumbs.
 - `app/globals.css` — design tokens and responsive layout system. Typography uses local system stacks; there are no remote font or image requests.
@@ -52,6 +52,10 @@ Add an entry to `content/insights.ts` with a unique `slug`, title, search descri
 ### Case studies
 
 Add complete data to `content/case-studies.ts`, then set `approvedForPublication: true` only after the client has approved attribution and each scope/result/quote is verified. `content/case-study-template.md` is the intake checklist. Drafts are not rendered or included in the sitemap. Do not invent metrics or imply an EOS affiliation.
+
+### Agent brief
+
+Edit `content/agent-brief.ts` to maintain the company brief shared by `/for-agents`, `/for-agents.md`, and `/llms.txt`. Keep the HTML and Markdown facts aligned with published services, FAQs, and case studies. Confirm prices, availability, credentials, and client outcomes before adding them; the brief explicitly records when evidence is not publicly available.
 
 ### FAQs and services
 

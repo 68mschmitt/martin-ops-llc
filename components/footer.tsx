@@ -16,7 +16,7 @@ export function Footer() {
           <Link href="/services/fractional-coo">Fractional COO</Link><Link href="/services/fractional-integrator">Fractional Integrator</Link><Link href="/process">How we work</Link><Link href="/operations-assessment">Operations assessment</Link>
         </div></div>
         <div><p className="footer-heading">More</p><div className="footer-links">
-          <Link href="/case-studies">Case studies</Link><Link href="/insights">Insights</Link><Link href="/about">About Jeff</Link><Link href="/faq">FAQs</Link><Link href={bookingUrl}>Book an Operations Fit Call</Link>
+          <Link href="/case-studies">Case studies</Link><Link href="/insights">Insights</Link><Link href="/about">About Jeff</Link><Link href="/faq">FAQs</Link><Link href="/for-agents">For AI agents and buyers</Link><Link href={bookingUrl}>Book an Operations Fit Call</Link>
           <span className="muted" style={{ fontSize: ".8rem", marginTop: ".35rem" }}>{locationLabel}</span>
         </div></div>
       </div>
