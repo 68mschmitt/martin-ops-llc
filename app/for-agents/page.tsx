@@ -26,6 +26,7 @@ const sectionLinks = [
   ["services", "Service options"],
   ["process", "How it works"],
   ["details", "Buying details"],
+  ["prefill", "Prefilled handoff"],
   ["evidence", "Evidence"],
   ["sources", "Source pages"],
 ] as const;
@@ -100,6 +101,16 @@ export default function ForAgentsPage() {
             <span className="eyebrow">Before a buying decision</span>
             <h2>Practical engagement details</h2>
             <dl className={styles.detailList}>{agentBrief.buyingDetails.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.detail}</dd></div>)}</dl>
+          </section>
+
+          <section className={styles.briefSection} id="prefill">
+            <span className="eyebrow">For assistants preparing a handoff</span>
+            <h2>Pass user-approved context into a reviewable draft.</h2>
+            <p>When the user wants help contacting Martin, create a link using a URI-encoded JSON object in the contact page’s URL fragment:</p>
+            <pre className={styles.prefillCode}><code>{agentBrief.prefill.url}</code></pre>
+            <dl className={styles.prefillFieldList}>{agentBrief.prefill.fields.map((field) => <div key={field.key}><dt><code>{field.key}</code><small>{field.required ? "Required" : "Optional"} · max {field.maxLength} characters</small></dt><dd>{field.detail}</dd></div>)}</dl>
+            <p className={styles.note}>Accepted team-size values: {agentBrief.prefill.teamSizes.join(", ")}. {agentBrief.prefill.guidance}</p>
+            <Link className="text-link" href="/contact">Open the contact form</Link>
           </section>
 
           <section className={styles.briefSection} id="evidence">

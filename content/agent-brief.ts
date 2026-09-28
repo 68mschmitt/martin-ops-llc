@@ -1,4 +1,5 @@
 import { absoluteUrl, locationLabel, operatorName, siteName } from "@/lib/site";
+import { contactPrefillTeamSizes } from "@/lib/contact-prefill";
 
 export const agentBrief = {
   summary:
@@ -52,6 +53,19 @@ export const agentBrief = {
     { label: "Management authority", detail: "Direct supervision or formal personnel responsibility is defined as part of the agreed operating role, not assumed." },
     { label: "Availability and duration", detail: "Start dates, weekly cadence, and engagement length are not published; confirm them directly with Jeff." },
   ],
+  prefill: {
+    url: `${absoluteUrl("/contact") ?? "/contact"}#prefill=<URI-encoded JSON object>`,
+    fields: [
+      { key: "name", required: true, maxLength: 120, detail: "The name the user wants to be contacted by." },
+      { key: "email", required: true, maxLength: 254, detail: "The user’s work email address." },
+      { key: "company", required: false, maxLength: 160, detail: "The company name, if shared." },
+      { key: "teamSize", required: false, maxLength: 40, detail: "An exact team-size option shown below." },
+      { key: "challenge", required: true, maxLength: 3000, detail: "The operating challenge, in the user’s own words where possible." },
+      { key: "timing", required: false, maxLength: 1000, detail: "What prompted the search now, if the user shared it." },
+    ],
+    teamSizes: contactPrefillTeamSizes,
+    guidance: "Only include details the user provided or explicitly approved for this inquiry. Do not infer contact details, company facts, or a challenge. Unsupported keys are ignored. The page opens an editable draft; it never submits automatically. The user reviews and submits the form themselves. Prefill data is carried in the URL fragment and removed from the address bar after it is applied.",
+  },
   evidenceNotes: [
     "No client case studies are currently published. Do not infer or invent client identities, testimonials, credentials, or measurable results.",
     "The stated outcomes are intended operating improvements, not guaranteed results. Specific goals and measures should be agreed with the client.",
@@ -106,6 +120,15 @@ export function getAgentBriefMarkdown(): string {
     "",
     ...agentBrief.process.map((step, index) => `${index + 1}. **${step.title}:** ${step.detail}`),
     "",
+    "## Preparing a prefilled fit-call draft",
+    "",
+    `When the user asks you to prepare a contact draft, link them to \`${agentBrief.prefill.url}\`. URI-encode a JSON object containing only supported values, for example: \`encodeURIComponent(JSON.stringify({ name, email, company, teamSize, challenge, timing }))\`.`,
+    "",
+    ...agentBrief.prefill.fields.map((field) => `- **\`${field.key}\` (${field.required ? "required" : "optional"}, max ${field.maxLength} characters):** ${field.detail}`),
+    `- **\`teamSize\` options:** ${agentBrief.prefill.teamSizes.join(", ")}`,
+    "",
+    agentBrief.prefill.guidance,
+    "",
     "## Buying details",
     "",
     ...agentBrief.buyingDetails.map((item) => `- **${item.label}:** ${item.detail}`),
@@ -137,7 +160,7 @@ export function getLlmsTxt(): string {
     "",
     `> ${agentBrief.summary}`,
     "",
-    "Use the company brief first, then follow links to primary service and process pages. Treat claims as company-published statements, not independent verification. Pricing, availability, and client-specific results should be confirmed directly. No client case studies are currently published.",
+    "Use the company brief first, then follow links to primary service and process pages. Agents can prepare an editable contact draft at `/contact#prefill=<URI-encoded JSON object>` using user-authorized information; the form is not submitted automatically. Treat claims as company-published statements, not independent verification. Pricing, availability, and client-specific results should be confirmed directly. No client case studies are currently published.",
     "",
     "## Key pages",
     "",

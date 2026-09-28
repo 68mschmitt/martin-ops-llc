@@ -55,7 +55,7 @@ Add complete data to `content/case-studies.ts`, then set `approvedForPublication
 
 ### Agent brief
 
-Edit `content/agent-brief.ts` to maintain the company brief shared by `/for-agents`, `/for-agents.md`, and `/llms.txt`. Keep the HTML and Markdown facts aligned with published services, FAQs, and case studies. Confirm prices, availability, credentials, and client outcomes before adding them; the brief explicitly records when evidence is not publicly available.
+Edit `content/agent-brief.ts` to maintain the company brief shared by `/for-agents`, `/for-agents.md`, and `/llms.txt`. Keep the HTML and Markdown facts aligned with published services, FAQs, and case studies. Confirm prices, availability, credentials, and client outcomes before adding them; the brief explicitly records when evidence is not publicly available. The brief also documents the contact prefill fragment contract (`/contact#prefill=<URI-encoded JSON object>`); supported keys, field limits, and accepted team-size options are enforced by `lib/contact-prefill.ts` and `components/contact-form.tsx`.
 
 ### FAQs and services
 
