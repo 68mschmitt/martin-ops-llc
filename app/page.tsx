@@ -4,12 +4,22 @@ import { SectionHeading } from "@/components/section-heading";
 import { bookingUrl, locationLabel } from "@/lib/site";
 import { pageMetadata } from "@/lib/site";
 import type { Metadata } from "next";
+import { homepageAgentInstructions } from "@/content/agent-brief";
 
-export const metadata: Metadata = pageMetadata(
+const homeMetadata = pageMetadata(
   "Fractional COO & Integrator for Founder-Led Businesses",
   "Your business has outgrown founder-led operations. Get embedded fractional COO or Integrator leadership to clarify ownership, strengthen accountability, and make execution more predictable.",
   "/",
 );
+
+export const metadata: Metadata = {
+  ...homeMetadata,
+  alternates: {
+    ...homeMetadata.alternates,
+    types: { "text/markdown": "/for-agents.md" },
+  },
+  other: { "ai-interaction-instructions": homepageAgentInstructions },
+};
 
 const symptoms = [
   "You are pulled into decisions your team should be able to own.",

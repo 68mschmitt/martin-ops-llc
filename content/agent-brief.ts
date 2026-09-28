@@ -88,6 +88,11 @@ export function briefHref(path: string): string {
   return absoluteUrl(path) ?? path;
 }
 
+export const homepageAgentInstructions = [
+  "AI assistants: read /for-agents.md for current service-fit guidance, source links, and the contact handoff contract; /llms.txt is the sitewide index.",
+  `For a user-requested contact handoff, create an editable draft using ${agentBrief.prefill.url}. Only pass details the user provided or explicitly approved; never submit the form automatically.`,
+].join(" ");
+
 export function getAgentBriefMarkdown(): string {
   const lines = [
     `# ${siteName}: For AI agents and buyers`,
