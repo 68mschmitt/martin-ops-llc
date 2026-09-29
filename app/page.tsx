@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CTA } from "@/components/cta";
 import { SectionHeading } from "@/components/section-heading";
 import { bookingUrl, locationLabel } from "@/lib/site";
@@ -50,28 +51,26 @@ const steps = [
 export default function HomePage() {
   return <>
     <section className="hero">
+      <Image
+        className="hero-background"
+        src="/operational-leadership-workspace.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+      />
       <div className="container hero-grid">
-        <div>
+        <div className="hero-content">
           <span className="eyebrow">Fractional COO · Fractional Integrator</span>
-          <h1>Your business has outgrown <em><span className="no-break">founder-led</span> operations.</em></h1>
-          <p className="hero-copy">Martin Operational Strategy provides embedded operational leadership for growing founder-led businesses that need clearer accountability, stronger execution, and an experienced second-in-command—without hiring a full-time COO.</p>
+          <h1><span className="hero-title-first">Your business has</span>{" "}<em>outgrown <span className="no-break">founder-led</span> operations.</em></h1>
+          <p className="hero-copy">Embedded fractional COO and Integrator leadership for growing founder-led businesses—so decisions, priorities, and follow-through no longer route through you.</p>
           <div className="hero-actions"><Link className="button" href={bookingUrl} data-analytics-event="fit_call_click" data-analytics-location="home_hero">Book an Operations Fit Call <span aria-hidden="true">↗</span></Link><Link className="button button--outline" href="/process">See how it works <span aria-hidden="true">↓</span></Link></div>
-          <div className="hero-meta"><span>Embedded, not advisory</span><span>Founder-led businesses</span><span>Atlanta + remote</span></div>
-        </div>
-        <div className="operating-graphic" role="img" aria-label="Operating system diagram: leadership, priorities, managers, and execution connect through a central operating rhythm">
-          <span className="graphic-label">A clearer operating system / 01</span>
-          <i className="flow-line flow-line--one" /><i className="flow-line flow-line--two" /><i className="flow-line flow-line--three" /><i className="flow-line flow-line--four" />
-          <div className="flow-core"><strong>Operating<br />rhythm</strong><span>Shared visibility</span></div>
-          <div className="flow-node flow-node--top"><strong>Leadership</strong><small>Alignment</small></div>
-          <div className="flow-node flow-node--right"><strong>Priorities</strong><small>Ownership</small></div>
-          <div className="flow-node flow-node--bottom"><strong>Managers</strong><small>Accountability</small></div>
-          <div className="flow-node flow-node--left"><strong>Execution</strong><small>Follow-through</small></div>
-          <span className="graphic-note">From founder hub → shared ownership</span>
+          <div className="hero-meta"><span>Embedded leadership</span><span>Founder-led teams</span><span>Atlanta + remote</span></div>
         </div>
       </div>
     </section>
 
-    <div className="ticker"><div className="container ticker-inner"><span>Fractional COO</span><span>Fractional Integrator</span><span>Leadership accountability</span><span>Predictable execution</span><span>{locationLabel}</span></div></div>
+    <div className="ticker"><div className="container ticker-inner"><span>Fractional COO + Integrator</span><span>Teams of 10–75</span><span>Operationally complex businesses</span><span>{locationLabel}</span></div></div>
 
     <section className="section"><div className="container symptom-layout">
       <div className="symptom-intro"><span className="eyebrow">The founder bottleneck</span><h2>When the founder becomes the operating system, growth starts to cost too much.</h2><p>You approve the work, connect the teams, remember the commitments, settle the disagreements, and make sure things get finished. It works—until every new layer of growth adds another route back to you.</p><Link className="text-link" href="/operations-assessment">Explore the founder dependency assessment</Link></div>
