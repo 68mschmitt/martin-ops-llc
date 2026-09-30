@@ -11,14 +11,14 @@
 }
 
 .pageHero :global(.button--outline) {
-  border-color: rgba(244, 241, 234, .68);
+  border-color: rgba(244, 246, 250, .68);
   background: transparent;
   color: var(--paper);
 }
 
 .pageHero :global(.button--outline:hover) {
   border-color: var(--paper);
-  background: rgba(244, 241, 234, .08);
+  background: rgba(244, 246, 250, .08);
 }
 
 .heroActions {
@@ -33,7 +33,7 @@
 }
 
 .copyStatus {
-  color: #e3e8e2;
+  color: #e1e6f0;
   font-size: .78rem;
 }
 
@@ -48,7 +48,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem 2rem;
-  border-top: 1px solid #46514b;
+  border-top: 1px solid #46547a;
   margin: clamp(2.5rem, 5vw, 4rem) 0 0;
   padding-top: 1.3rem;
 }
@@ -61,7 +61,7 @@
 
 .facts dt,
 .detailList dt {
-  color: #d5a28d;
+  color: var(--accent-light);
   font: 500 .66rem/1.4 var(--mono);
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -69,7 +69,7 @@
 
 .facts dd {
   margin: 0;
-  color: #e3e8e2;
+  color: #e1e6f0;
   font-size: .88rem;
   line-height: 1.5;
 }
@@ -155,7 +155,7 @@
 .note {
   border-left: 2px solid var(--accent);
   margin: 1.3rem 0 0;
-  background: #eeebe3;
+  background: #e9edf5;
   padding: .9rem 1rem;
   font-size: .88rem;
 }
@@ -270,7 +270,7 @@
   overflow-x: auto;
   border-left: 2px solid var(--accent);
   margin: 1rem 0 1.4rem;
-  background: #eeebe3;
+  background: #e9edf5;
   padding: 1rem;
   color: var(--ink);
   font: .82rem/1.6 var(--mono);
